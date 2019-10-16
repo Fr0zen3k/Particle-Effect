@@ -19,9 +19,9 @@ namespace jk {
         delete [] m_pParticles;
     }
     
-    void Swarm::move() {
+    void Swarm::move(int elapsed) {
         for(int i = 0; i < NUM_PARTICLES; i++) {
-            m_pParticles[i].move();
+            m_pParticles[i].move(elapsed);
         }
     }
     

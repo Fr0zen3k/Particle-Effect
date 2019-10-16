@@ -44,17 +44,23 @@ int main(int argc, const char * argv[]) {
     double randGreen = ((1.0 * rand()) / RAND_MAX) * 0.001 + 0.0003;
     double randBlue = ((1.0 * rand()) / RAND_MAX) * 0.001 + 0.0003;
     
+    int ticks = 0;
+    int lastTicks = 0;
+    int elapsed = 0;
+    
     //Game loop.
     for(long passes = 0; true; passes++) {
         
-        int elapsed = SDL_GetTicks();
+        lastTicks = ticks;
+        ticks = SDL_GetTicks();
+        elapsed = ticks - lastTicks;
         
         const Particle * const pParticles = swarm.getParticles();
         
         //Colors calculated trough sin, depending on the factors for each, and time from the SDL start
-        Uint8 red = 128 * (sin(randRed * elapsed) + 1);
-        Uint8 green = 128 * (sin(randGreen * elapsed) + 1);
-        Uint8 blue = 128 * (sin(randBlue * elapsed) + 1);
+        Uint8 red = 128 * (sin(randRed * ticks) + 1);
+        Uint8 green = 128 * (sin(randGreen * ticks) + 1);
+        Uint8 blue = 128 * (sin(randBlue * ticks) + 1);
         
         /*
          Iterate trough all the particles in the swarm and draw them to the screen as pixels on the position of the parcitles, with the color values from the game loop.
@@ -68,7 +74,7 @@ int main(int argc, const char * argv[]) {
         /*
          Move all the particles in the swarm every frame.
          */
-        swarm.move();
+        swarm.move(elapsed);
         
         /*
          Apply the box blur effect each frame, instead of clearing the frame, in order to get more then pure particle movement.

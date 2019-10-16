@@ -33,7 +33,7 @@ namespace jk {
         */
         const Particle * const getParticles() { return m_pParticles; };
         //Calls the Particle::move() method on all the particles of the array
-        void move();
+        void move(int elapsed);
     };
     
 }

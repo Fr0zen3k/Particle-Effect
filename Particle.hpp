@@ -33,7 +33,7 @@ namespace jk {
           Makes sure to invert x or y speed if the particle touches the edge of the screen, causing
           the particle to bounce.
         */
-        void move();
+        void move(int elapsed);
     };
     
 }

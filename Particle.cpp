@@ -24,7 +24,7 @@ namespace jk {
 
     }
     
-    void Particle::move() {
+    void Particle::move(int elapsed) {
         
         if(m_x < 1 || m_x > Screen::SCREEN_WIDTH - 2) {
             m_xSpeed = -m_xSpeed;
@@ -34,7 +34,7 @@ namespace jk {
             m_ySpeed = -m_ySpeed;
         }
         
-        m_x += m_xSpeed;
-        m_y += m_ySpeed;
+        m_x += m_xSpeed * 0.01 * elapsed;
+        m_y += m_ySpeed * 0.01 * elapsed;
     }
 }
