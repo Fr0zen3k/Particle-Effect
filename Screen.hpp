@@ -2,12 +2,16 @@
 //  Screen.hpp
 //  Particle Effect
 //
+//  Version 1.1
+//
 //  Created by Jan Kresic on 9/11/19.
 //  Copyright © 2019 Jan Kresic. All rights reserved.
 //
 
 #ifndef Screen_hpp
 #define Screen_hpp
+
+#include <iostream>
 
 #include <SDL2/SDL.h>
 
@@ -68,7 +72,11 @@ namespace jk {
          The algorithm takes the values from m_buffer1, puts it into m_buffer2, and calculates a new pixel values in m_buffer1 based on tha last frame.
          The algoritm iterates trough all the adjacent pixels for each pixel on the screen and sets the pixel value to the average color between the adjacent 9(or less) pixels.
          */
-        void boxBlur();
+        /*
+         Two versions of box blur since v1.1, boxBlur1() has approx 7 ticks per frame improved perfornamce compared to boxBlur2().
+         */
+        void boxBlur1();
+        void boxBlur2();
     };
     
 }

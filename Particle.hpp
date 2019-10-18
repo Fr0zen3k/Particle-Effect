@@ -2,6 +2,8 @@
 //  Particle.hpp
 //  Particle Effect
 //
+//  Version 1.1
+//
 //  Created by Jan Kresic on 9/11/19.
 //  Copyright © 2019 Jan Kresic. All rights reserved.
 //

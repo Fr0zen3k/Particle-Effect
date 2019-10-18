@@ -2,14 +2,15 @@
 //  main.cpp
 //  Particle Effect
 //
+//  Version 1.1
+//
 //  Created by Jan Kresic on 9/2/19.
 //  Copyright © 2019 Jan Kresic. All rights reserved.
 //
 
 #include <iostream>
-#include <math.h>
-#include <stdlib.h>
-#include <time.h>
+#include <cmath>
+#include <cstdlib>
 
 #include <SDL2/SDL.h>
 
@@ -79,7 +80,7 @@ int main(int argc, const char * argv[]) {
         /*
          Apply the box blur effect each frame, instead of clearing the frame, in order to get more then pure particle movement.
          */
-        screen.boxBlur();
+        screen.boxBlur1();
         
         //Draw the screen.
         screen.update();
